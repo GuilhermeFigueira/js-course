@@ -1,0 +1,17 @@
+body {
+	font-family: Verdana;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#rollButton {
+	font-size: 3em;
+	padding: 5px 25px;
+	border-radius: 5px;
+}
+
+.rollLabels {
+	font-size: 4em;
+}
