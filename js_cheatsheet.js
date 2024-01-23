@@ -600,3 +600,123 @@ console.log(phoneNumber); //"992281040111111"
 // string slicing = criar uma "substring" com uma parte de outra string
 
 const fullName = "Joao Gamer";
+
+let firstName1 = fullName.slice(0, 4); // Joao
+let lastName = fullName.slice(5, 10); // Gamer
+
+let firstChar = fullName.slice(0, 1); // J
+let lastChar = fullName.slice(-1); // r
+
+// Porém só funciona dessa maneira se o nome for exatamente "Joao Gamer"
+// Para isso utilizamos .indexOf
+
+let firstName2 = fullName.slice(0, fullName.indexOf(" ")); // Joao
+let lastName1 = fullName.slice(fullName.indexOf(" ") + 1); // Gamer
+
+//==============
+
+const email = "pedrogames@gmail.com";
+
+let username2 = email.slice(0, email.indexOf("@")); // pedrogames
+let extension = email.slice(email.indexOf("@") + 1); // gmail.com
+
+//==================================================================================================================================================================
+
+// Method Chaining = Chamar um método atrás do outro em uma linha contínua de código
+
+// OBJETIVO: Receber um input do usuário com o username, remover todo o espaço em branco, deixar a primeira letra em maiúsculo
+//           deixar todas as outras em minúsculo
+
+let username3 = window.prompt("Enter your username");
+
+// ----------- SEM METHOD CHAINING ----------
+
+username3 = username3.trim();
+let letter = username3.charAt(0);
+letter = letter.toUpperCase();
+
+let extraChars = username3.slice(1);
+extraChars = extraChars.toLowerCase;
+
+username3 = letter + extraChars; //
+
+// ----------- COM METHOD CHAINING ----------
+
+username3 =
+	username3.trim().charAt(0).toUpperCase() +
+	username3.trim().slice(1).toLowerCase();
+
+//==================================================================================================================================================================
+
+// logical operators (operadores lógicos) = são usados para combinar ou manipular valores booleanos (verdadeiro ou falso)
+
+// AND = &&
+// OR = ||
+// NOT = !
+
+const temp = 20;
+
+// 👎
+if (temp > 0) {
+	console.log("The weather is good");
+} else if (temp <= 30) {
+	console.log("The weather is good");
+} else {
+	console.log("The weather is bad");
+}
+
+// 👍
+
+if (temp > 0 && temp <= 30) {
+	console.log("The weather is good");
+} else {
+	console.log("The weather is bad");
+}
+
+//==============
+
+if (temp <= 0 || temp > 30) {
+	console.log("The weather is bad");
+} else {
+	console.log("The weather is good");
+}
+
+//==============
+
+let isSunny = true;
+
+if (isSunny) {
+	console.log("Its sunny");
+} else {
+	console.log("Its cloudy");
+}
+
+if (!isSunny) {
+	console.log("Its cloudy");
+} else {
+	console.log("Its sunny");
+}
+
+//==================================================================================================================================================================
+
+// "=" operador de designação
+// "==" operador de comparação (compara se os valores são iguais)
+// "===" operador de igualdade estrita (compara se os valores E o tipo do dado são iguais)
+// "!="" operador de não igualdade
+// "!==" operador de não igualdade estrita
+
+const PI = 3.14;
+
+// Retorna verdadeiro
+if (PI == "3.14") {
+	console.log("That is PI");
+} else {
+	console.log("That is not PI");
+}
+
+// Retorna falso pois os tipos de dado são diferentes
+if (PI === "3.14") {
+	console.log("That is PI");
+} else {
+	console.log("That is not PI");
+}
