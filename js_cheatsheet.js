@@ -720,3 +720,155 @@ if (PI === "3.14") {
 } else {
 	console.log("That is not PI");
 }
+
+// Retorna verdadeiro
+if (PI === 3.14) {
+	console.log("That is PI");
+} else {
+	console.log("That is not PI");
+}
+
+// Um bom uso do operador de igualdade estrita é no recebimento do input do usuário, pois tende a ser do tipo string
+
+if (PI != "3.14") {
+	console.log("That is not PI");
+} else {
+	console.log("That is PI"); // <-- executa
+}
+
+if (PI !== "3.14") {
+	console.log("That is not PI"); // <-- executa
+} else {
+	console.log("That is PI");
+}
+
+if (PI !== 3.14) {
+	console.log("That is not PI");
+} else {
+	console.log("That is PI"); // <-- executa
+}
+
+//==================================================================================================================================================================
+
+// while loop = irá repetir um código ENQUANTO (while) uma condição for verdadeira
+
+let username4 = "";
+
+// Irá executar uma vez só
+if (username4 === "") {
+	console.log("You didn't enter your name");
+} else {
+	console.log(`Hello ${username4}`);
+}
+
+// Vai rodar várias vezes até o username4 for diferente de vazio
+// Caso o username4 for diferente de vazio, nunca entraremos no while loop
+
+while (username4 === "") {
+	//Loop infinito
+	console.log("You didn't enter your name");
+}
+console.log(`Hello ${username4}`);
+
+// Sempre deixe uma maneira de escapar do laço while, caso contrário ficará infinito
+
+while (username4 === "" || username4 === null || username4 === undefined) {
+	// Não deixará o usuário fechar a prompt até inserir o username
+	username4 = window.prompt("Enter your name");
+}
+console.log(`Hello ${username4}`);
+
+//==============
+
+// Usar do{}while() é diferente de usar somente while, pois ele sempre executará ao menos uma vez
+
+do {
+	username4 = window.prompt("Enter your name");
+} while (username4 === "" || username4 === null);
+
+//==============
+
+let loggedIn = false;
+let username5;
+let password;
+
+//  Se loggedIn for verdadeiro, o WHILE loop não será executado, mas se fosse DO WHILE
+//  mesmo que o loggedIn fosse verdadeiro, o laço seria executado mesmo assim
+while (!loggedIn) {
+	username5 = window.prompt("Enter your username");
+	password = window.prompt("Enter your password");
+
+	if (username5 === "myUsername" && password === "myPassword") {
+		loggedIn = true;
+		console.log("You are logged in!");
+	} else {
+		console.log("Invalid credentials please try again!");
+	}
+}
+
+//==================================================================================================================================================================
+
+// for loop = repete um código uma quantidade LIMITADA de vezes
+
+// i = index
+for (let i = 0; i <= 2; i++) {
+	console.log("Hello"); // Irá mostrar essa mensagem 3 vezes (i=0,i=1,i=2)
+	console.log(i); // 0,1,2
+}
+
+//==============
+
+for (let i = 1; i <= 10; i++) {
+	console.log(i); //conta até 10
+}
+
+//==============
+
+for (let i = 1; i <= 10; i += 2) {
+	console.log(i); // conta de 2 em 2 (1,3,5,7,9) e são todos os números ímpares de 1-10
+}
+
+//==============
+
+for (let i = 2; i <= 10; i += 2) {
+	console.log(i); // conta de 2 em 2 (1,3,5,7,9) e são todos os números pares de 1-10
+}
+
+//==============
+
+for (let i = 10; i > 0; i--) {
+	console.log(i); // conta de 10 até 0
+}
+console.log("FELIZ ANO NOVO");
+
+//==============
+
+for (let i = 10; i > 0; i -= 2) {
+	console.log(i); // conta de 10 até 0 de 2 em 2
+}
+
+//==============
+
+for (let i = 1; i <= 20; i++) {
+	if (i == 13) {
+		continue; // Irá pular o número 13
+	} else {
+		console.log(i); // Conta de 1-20
+	}
+}
+
+//==============
+
+for (let i = 1; i <= 20; i++) {
+	if (i == 13) {
+		break; // Irá parar no número 12
+	} else {
+		console.log(i); // Conta de 1-20
+	}
+}
+
+//==================================================================================================================================================================
+
+// Ver "./number-guessing-game"
+
+//==================================================================================================================================================================
