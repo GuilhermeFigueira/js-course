@@ -872,3 +872,36 @@ for (let i = 1; i <= 20; i++) {
 // Ver "./number-guessing-game"
 
 //==================================================================================================================================================================
+
+// function = Uma seção de código reusável
+//            Declare o código uma vez, e use quando quiser
+//            Chame a função para executar aquele código
+
+function happyBirthday() {
+	console.log("Happy birthday to you!");
+	console.log("Happy birthday to you!");
+	console.log("Happy birthday to you!");
+	console.log("Happy birthday to you!");
+}
+
+happyBirthday(); // "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!"
+happyBirthday(); // "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!"
+happyBirthday(); // "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!" "Happy birthday to you!"
+
+//==============
+
+function happyBirthdayTo(username, age) {
+	console.log("Happy birthday to you!");
+	console.log("Happy birthday to you!");
+	console.log(`Happy birthday to ${username}!`);
+	console.log("Happy birthday to you!");
+	console.log(`You are ${age} years old`);
+}
+
+//happyBirthdayTo();  Não funciona, necessita dos argumentos
+
+happyBirthdayTo("Pedrogamer", 25); // "Happy birthday to you!" "Happy" birthday to you!" "Happy birthday to Pedrogamer!" "Happy birthday to you!"
+//                                     "You are 25 years old"
+// A ordem dos parâmetros importa
+
+//==============
