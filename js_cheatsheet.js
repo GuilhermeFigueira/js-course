@@ -905,3 +905,150 @@ happyBirthdayTo("Pedrogamer", 25); // "Happy birthday to you!" "Happy" birthday 
 // A ordem dos parâmetros importa
 
 //==============
+
+function add(x, y) {
+	let result = x + y;
+	return result;
+}
+
+// Ou
+
+function add(x, y) {
+	return x + y;
+}
+
+add(2, 3); // Quando a função executa, ela se torna o valor especificado pelo "return" que nesse caso seria "5"
+
+// Por exemplo
+
+let answer = add(2, 3);
+console.log(answer); // 5
+
+// Ou
+
+console.log(add(2, 3)); // 5
+
+function subtract(x, y) {
+	return x - y;
+}
+
+function multiply(x, y) {
+	return x * y;
+}
+
+function divide(x, y) {
+	return x / y;
+}
+
+//==============
+
+function isEven(number) {
+	return number % 2 === 0 ? true : false;
+	// Ou
+
+	// if (number % 2 === 0) {
+	// 	return true;
+	// } else {
+	// 	return false;
+	// }
+}
+
+console.log(isEven(10)); // true
+console.log(isEven(11)); // false
+console.log(isEven(12)); // true
+
+//==============
+
+function isValidEmail(email) {
+	return email.includes("@") ? true : false;
+
+	// if (email.includes("@")) {
+	// 	return true;
+	// } else {
+	// 	return false;
+	// }
+}
+
+console.log(isValidEmail("pedrogames@gmail.com")); // true
+console.log(isValidEmail("pedrogames.com")); // false
+
+//==================================================================================================================================================================
+
+// variable scope = onde uma variável é reconhecida e acessível (local vs global)
+
+// Retorna erro de sintaxe pois são duas variáveis globais, para poder declarar duas variáveis iguais é necessário declará-las em dois
+// escopos diferentes
+
+// let x = 1
+// let x = 2 => error
+
+function function1() {
+	let x = 1;
+	console.log(x);
+}
+
+function function2() {
+	let x = 2;
+	console.log(x);
+}
+
+function1(); // 1
+function2(); // 2
+
+// Não retorna erro, pois estão dentro de escopos diferentes
+
+//==============
+
+function function3() {
+	let x = 1;
+	console.log(y); // y is not defined
+}
+
+function function4() {
+	let y = 2;
+	console.log(x); // x is not defined
+}
+
+// Funções não conseguem ver dentro de outras funções
+
+//==============
+
+// Mas elas enxergam variáveis globais (tomar cuidado ao declarar várias variáveis globais em um grande projeto, possível conflito de nomes)
+
+let x5 = 15;
+
+function function5() {
+	console.log(x5);
+}
+
+function function6() {
+	console.log(x5);
+}
+
+function5(); // 15
+function6(); // 15
+
+//==============
+
+let x6 = 15;
+
+function function7() {
+	let x6 = 23;
+	console.log(x6);
+}
+
+function function8() {
+	let x6 = 38;
+	console.log(x6);
+}
+
+function7(); // 23
+function8(); // 38
+
+// Se tivermos duas variáveis com nomes iguais em escopos diferentes, a versão local sempre será usada primeiro
+
+//==================================================================================================================================================================
+
+// Ver "./temperature-conversor"
+
+//==================================================================================================================================================================
