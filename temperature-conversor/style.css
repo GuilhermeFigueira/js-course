@@ -1,0 +1,58 @@
+body {
+	font-family: Helvetica, sans-serif;
+	background-color: hsl(0, 0%, 95%);
+}
+
+h1 {
+	color: hsla(223, 100%, 63.9%, 0.59);
+}
+
+form {
+	background-color: #ffffff;
+	text-align: center;
+	max-width: 350px;
+	margin: auto;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 5px 5px 12px hsla(0, 0%, 90%, 0.3);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+}
+
+#temperatureInput {
+	width: 50%;
+	text-align: center;
+	font-size: 2em;
+	/* border: 2xp solid hsla(0, 17.2%, 94.3%, 0.8); */
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+
+label {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+button {
+	width: 70%;
+	margin-top: 15px;
+	background-color: hsla(0, 58.3%, 32.9%, 0.72);
+	font-size: 1.5em;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: hsla(0, 58.3%, 32.9%, 0.92);
+}
+
+#conversionResult {
+	font-size: 1.75em;
+	font-weight: bold;
+}

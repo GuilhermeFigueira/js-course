@@ -7,6 +7,22 @@
 		<title>Document</title>
 	</head>
 	<body>
+		<form action="">
+			<h1>Temperature conversion:</h1>
+			<input type="text" type="number" id="temperatureInput" value="0" />
+
+			<div>
+				<input type="radio" name="unit" id="toFahrenheit" />
+				<label for="toFahrenheit">Celsius ➡️ Fahrenheit</label>
+			</div>
+			<div>
+				<input type="radio" name="unit" id="toCelsius" />
+				<label for="toCelsius">Fahrenheit ➡️ Celsius</label>
+			</div>
+			<button type="button" onclick="convert()">Submit</button>
+
+			<p id="conversionResult"></p>
+		</form>
 		<script src="index.js"></script>
 	</body>
 </html>

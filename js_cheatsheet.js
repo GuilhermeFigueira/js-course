@@ -1052,3 +1052,10 @@ function8(); // 38
 // Ver "./temperature-conversor"
 
 //==================================================================================================================================================================
+
+// array = são utilizados para armazenar mais de um valor em uma única variável.
+//         Isso é comparável a uma variável que pode armazenar apenas um valor.
+
+let fruit = "apple";
+
+let fruits = ["apple", "orange", "banana"];
