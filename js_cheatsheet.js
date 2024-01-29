@@ -1122,3 +1122,36 @@ fruits.sort(); // Organiza em ordem alfabética
 fruits.sort().reverse(); // Organiza em ordem alfabética reversa
 
 //==================================================================================================================================================================
+
+// spread operator = (...) permite expandir uma array ou string em elementos separados (desempacota o elemento)
+
+let numbers = [1, 2, 3, 4, 5];
+//let maximum = Math.max(numbers); // NaN
+let maximum = Math.max(...numbers); // 5
+let minimum = Math.min(...numbers); // 1
+
+//==============
+
+let username6 = "JoaoGamer123";
+let letters = [...username6];
+
+console.log(letters); // ['J','o','a','o','G','a','m','e','r','1','2','3']
+
+let letters_ = [...username6].join("-");
+
+console.log(letters_); // J-o-a-o-G-a-m-e-r-1-2-3
+
+//==============
+
+let fruits2 = ["apple", "orange", "banana"];
+let newFruits = [...fruits2];
+
+console.log(newFruits); //["apple", "orange", "banana"]
+
+let vegetables = ["carrots", "celery", "potatoes"];
+
+let foods = [...fruits2, ...vegetables, "eggs", "milk"];
+
+console.log(foods); // ["apple", "orange", "banana", "carrots", "celery", "potatoes", "eggs", "milk"]
+
+//==================================================================================================================================================================
