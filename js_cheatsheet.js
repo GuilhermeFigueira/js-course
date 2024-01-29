@@ -1059,3 +1059,66 @@ function8(); // 38
 let fruit = "apple";
 
 let fruits = ["apple", "orange", "banana"];
+
+//==============
+
+console.log(fruits); // "apple", "orange", "banana"
+
+console.log(fruits[0]); // "apple"
+console.log(fruits[1]); // "orange"
+console.log(fruits[2]); // "banana"
+console.log(fruits[3]); // undefined
+
+//==============
+
+fruits[0] = "coconut";
+
+console.log(fruits[0]); // "coconut"
+
+//==============
+
+fruits.push("pineapple"); // Adiciona um valor a array na última posição
+fruits.pop(); // Remove um valor da array na última posição
+fruits.unshift("mango"); // Adiciona um valor a array na primeira posição
+fruits.shift(); // Remove um valor da array na primeira posição
+
+//==============
+
+let numOfFruits = fruits.length;
+console.log(numOfFruits); // 3
+
+//==============
+
+let index = fruits.indexOf("apple");
+console.log(index); // 0
+
+let index1 = fruits.indexOf("kiwi");
+console.log(index1); // -1 (útil para testar se tal valor existe na array)
+
+//==============
+
+for (let i = 0; i < fruits.length; i++) {
+	console.log(fruits[i]); // vai printar no console os valores da array um por um em ordem crescente de index
+}
+
+for (let i = fruits.length - 1; i >= 0; i--) {
+	console.log(fruits[i]); // vai printar no console os valores da array um por um em ordem decrescente de index
+}
+
+// Método simplificado de usar o for com arrays
+
+for (let fruit of fruits) {
+	console.log(fruit);
+}
+
+// Faz a mesma coisa que
+// for (let i = 0; i < fruits.length; i++) {
+// 	console.log(fruits[i]);
+// }
+
+//==============
+
+fruits.sort(); // Organiza em ordem alfabética
+fruits.sort().reverse(); // Organiza em ordem alfabética reversa
+
+//==================================================================================================================================================================
