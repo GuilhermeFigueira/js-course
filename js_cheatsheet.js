@@ -1155,3 +1155,73 @@ let foods = [...fruits2, ...vegetables, "eggs", "milk"];
 console.log(foods); // ["apple", "orange", "banana", "carrots", "celery", "potatoes", "eggs", "milk"]
 
 //==================================================================================================================================================================
+
+// rest parameters = (...rest) permite que uma função trabalhe com um número variável de argumentos juntando eles em uma array
+//
+//                    spread = desempacota uma array em elementos separados (oposto do rest)
+//                    rest = junta elementos separados em uma array (oposto do spread)
+
+// Essa função aceita "n" número de argumentos
+function openFridge(...foods) {
+	// Usando rest e spread
+	console.log(...foods);
+	//Junta todos os "n" parâmetros passados na função usando o ...rest e depois separa eles novamente usando o ...spread
+}
+
+function getFood(...foods) {
+	return foods;
+}
+
+const food1 = "pizza";
+const food2 = "hamburger";
+const food3 = "ramen";
+const food4 = "cachorro-quente";
+
+openFridge(food1, food2, food3, food4); // pizza hamburger ramen cachorro-quente
+
+const foods1 = getFood(food1, food2, food3, food4); // ['pizza', 'hamburger', 'ramen', 'cachorro-quente']
+
+console.log(foods1); // ['pizza', 'hamburger', 'ramen', 'cachorro-quente']
+
+//==============
+
+function sum(...numbers) {
+	let result = 0;
+	for (let number of numbers) {
+		result += number;
+	}
+	return result;
+}
+
+const total = sum(1, 2, 42, 55, 82);
+
+console.log(`Your total is $${total}`); // Your total is $182
+
+function getAverage(...numbers) {
+	let result = 0;
+	for (let number of numbers) {
+		result += number;
+	}
+	return result / numbers.length;
+}
+
+const total1 = getAverage(75, 100, 85, 90, 50);
+
+console.log(total1); //80
+
+//==============
+
+const fullName1 = combineString(
+	"Mr.",
+	"John",
+	"Gamer",
+	"Epic",
+	"Master",
+	"III"
+);
+
+function combineString(...strings) {
+	return strings.join(" ");
+}
+
+console.log(fullName1); // Mr John Gamer Epic Master III
