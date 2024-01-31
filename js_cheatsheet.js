@@ -1235,3 +1235,133 @@ console.log(fullName1); // Mr John Gamer Epic Master III
 // Ver "./random-password-generator"
 
 //==================================================================================================================================================================
+
+// callback = uma função que é passada como argumento para outra função
+
+//            	usado para fazer operações assíncronas (operações que demoram um tempo variável para executar), como:
+//				1 - Ler um arquivo
+//				2 - Requisições de rede
+//				3 - Interagindo com o banco de dados
+
+//				"Eai, quando você acabar, faça isso em seguida"
+
+function hello() {
+	console.log("Hello!");
+}
+
+function goodbye() {
+	console.log("Goodbye");
+}
+
+hello(); // Executa uma
+goodbye(); // Após a outra
+
+// Resultado:
+//"Hello!"
+//"Goodbye!"
+
+//==============
+
+// Mas e se a função "hello" demorar muito tempo pra processar?
+
+function hello1() {
+	// Função para esperar
+	setTimeout(function () {
+		console.log("Hello!");
+	}, 3000);
+}
+
+function goodbye1() {
+	console.log("Goodbye");
+}
+
+hello1();
+goodbye1();
+
+// Resultado:
+//"Goodbye!"
+//...
+//...
+//...
+//...
+//"Hello!"
+
+// O Javascript não espera a função "hello1" para executar a função "goodbye1"
+// O que poderia causar problemas caso a função "goodbye1" dependesse da "hello1"
+
+//==============
+
+// Solução:
+// Usar a função "goodbye" como "callback" na função "hello"
+
+function hello2(callback) {
+	setTimeout(function () {
+		console.log("Hello!");
+	}, 3000);
+	callback();
+}
+
+function goodbye2() {
+	console.log("Goodbye");
+}
+
+hello2(goodbye2); // (Não adicionar "()" na função "goodbye2", caso usado irá chamar a função callback imediatamente, sem esperar) ;
+
+// Resultado:
+//...
+//...
+//...
+//...
+//"Hello!"
+//"Goodbye!"
+
+//==============
+
+function sum2(callback, x, y) {
+	let result = x + y;
+	callback(result);
+}
+
+function displayConsole(result) {
+	console.log(result);
+}
+
+sum(displayConsole, 1, 2); // 3
+
+// Primeiro calcula o resultado, depois que terminado, mostra o resultado no console
+
+//==================================================================================================================================================================
+
+// forEach() = método usado para percorrer os objetos de uma array e aplicar uma função especifica (callback) para cada elemento
+
+//				array.forEach(callback)
+//				elemento, index, array são providenciados à função callback
+
+let numbers2 = [1, 2, 3, 4, 5];
+
+function display(element) {
+	console.log(element);
+}
+
+numbers2.forEach(display);
+
+//Resultado:
+//1
+//2
+//3
+//4
+//5
+//Cada um em uma linha diferente
+
+function double(element, index, array) {
+	array[index] = element * 2;
+}
+
+numbers2.forEach(double);
+
+//Resultado:
+//2
+//4
+//6
+//8
+//10
