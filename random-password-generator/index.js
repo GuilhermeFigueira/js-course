@@ -1,9 +1,10 @@
 const passwordLength = 12;
-const includeLowerCase = true;
-const includeUpperCase = true;
-const includeNumbers = true;
-const includeSymbols = true;
-
+const includeLowerCase = document.getElementById("includeLowerCase");
+const includeUpperCase = document.getElementById("includeUpperCase");
+const includeNumbers = document.getElementById("includeNumbers");
+const includeSymbols = document.getElementById("includeSymbols");
+const generatedPassword = document.getElementById("generatedPassword");
+const generateButton = document.getElementById("generateButton");
 function generatePassword(
 	length,
 	includeLowerCase,
@@ -46,4 +47,14 @@ const password = generatePassword(
 	includeSymbols
 );
 
-console.log(`Generated password: ${password}`);
+generateButton.onclick = () => {
+	const password = generatePassword(
+		passwordLength,
+		includeLowerCase.checked,
+		includeUpperCase.checked,
+		includeNumbers.checked,
+		includeSymbols.checked
+	);
+	generatedPassword.textContent = password;
+	navigator.clipboard.writeText(password);
+};

@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,900;1,300;1,700&display=swap"
+			rel="stylesheet"
+		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Random password generator</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+		<div class="container">
+			<h1>Random password generator</h1>
+			<div>
+				<input
+					type="checkbox"
+					name="includeLowerCase"
+					id="includeLowerCase"
+				/>
+				<label for="includeLowerCase"
+					>Include Lower Case Characters?</label
+				>
+			</div>
+			<div>
+				<input
+					type="checkbox"
+					name="includeUpperCase"
+					id="includeUpperCase"
+				/>
+				<label for="includeUpperCase"
+					>Include Upper Case Characters?</label
+				>
+			</div>
+			<div>
+				<input
+					type="checkbox"
+					name="includeNumbers"
+					id="includeNumbers"
+				/>
+				<label for="includeNumbers">Include Numbers?</label>
+			</div>
+
+			<div>
+				<input
+					type="checkbox"
+					name="includeSymbols"
+					id="includeSymbols"
+				/>
+				<label for="includeSymbols">Include Symbols?</label>
+			</div>
+			<button id="generateButton">GENERATE</button>
+			<p id="generatedPassword"></p>
+		</div>
 		<script src="index.js"></script>
 	</body>
 </html>
