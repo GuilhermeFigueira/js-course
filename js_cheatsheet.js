@@ -1409,9 +1409,10 @@ fruits3.forEach(capitalize);
 //==================================================================================================================================================================
 
 // .map() = aceita um callback e aplica essa função a cada elemento de uma array, depois retorna uma nova array
-//			bem similar ao forEach, mas a diferença principal é que o .map() retorna uma NOVA array
+//			bem similar ao forEach, mas a diferença principal é que o .map() retorna uma NOVA
+//			usado caso necessite preservar a array original
 
-//Const para demonstrar que não estamos modificando a array original
+// const para demonstrar que não estamos modificando a array original
 const numbers3 = [1, 2, 3, 4, 5];
 
 function square(element) {
@@ -1442,3 +1443,20 @@ function uppercase(element) {
 const students2Upper = students2.map(uppercase);
 
 log(students2Upper); // ["SPONGEBOB", "PATRICK", "SQUIDWARD", "SANDY"];
+
+//==============
+
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+
+function formatDates(element) {
+	const parts = element.split("-");
+	return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+const formattedDates = dates.map(formatDates);
+
+console.log(formattedDates); // ["10/1/2024", "20/2/2025", "30/3/2026"]
+
+//==================================================================================================================================================================
+
+//filter
