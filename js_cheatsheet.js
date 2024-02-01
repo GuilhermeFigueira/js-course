@@ -1365,3 +1365,80 @@ numbers2.forEach(double);
 //6
 //8
 //10
+
+function square(element, index, array) {
+	array[index] = Math.pow(element, 2);
+}
+
+numbers2.forEach(square);
+
+//==============
+
+let fruits3 = ["apple", "orange", "banana", "coconut"];
+
+function display(element) {
+	console.log(element);
+}
+
+function upperCase(element, index, array) {
+	array[index] = element.toUpperCase();
+}
+
+function capitalize(element, index, array) {
+	array[index] = element.charAt(0).upperCase() + element.slice(1);
+}
+
+fruits3.forEach(display);
+//apple
+//orange
+//banana
+//coconut
+
+fruits3.forEach(upperCase);
+//APPLE
+//ORANGE
+//BANANA
+//COCONUT
+
+fruits3.forEach(capitalize);
+//Apple
+//Orange
+//Banana
+//Coconut
+
+//==================================================================================================================================================================
+
+// .map() = aceita um callback e aplica essa função a cada elemento de uma array, depois retorna uma nova array
+//			bem similar ao forEach, mas a diferença principal é que o .map() retorna uma NOVA array
+
+//Const para demonstrar que não estamos modificando a array original
+const numbers3 = [1, 2, 3, 4, 5];
+
+function square(element) {
+	return Math.pow(element, 2);
+}
+
+// Temos que atribuir o resultado do map a uma nova variável
+const squares = numbers3.map(square);
+
+console.log(squares); // [1,4,9,16,25]
+
+function cube(element) {
+	return Math.pow(element, 3);
+}
+
+const cubes = numbers3.map(cube);
+
+console.log(squares); // [1,8,27,64,125]
+
+//==============
+
+const students2 = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+
+function uppercase(element) {
+	return element.toUpperCase();
+}
+
+const students2Upper = students2.map(uppercase);
+
+log(students2Upper); // ["SPONGEBOB", "PATRICK", "SQUIDWARD", "SANDY"];
