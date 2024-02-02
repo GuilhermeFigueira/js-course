@@ -1459,4 +1459,167 @@ console.log(formattedDates); // ["10/1/2024", "20/2/2025", "30/3/2026"]
 
 //==================================================================================================================================================================
 
-//filter
+//.filter() = cria uma nova array filtrando elementos
+
+let numbers4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function isEven(element) {
+	return element % 2 === 0; // Retorna true or false, pois o método filter() filtra elementos que retornem true, e colocam eles em uma nova array
+}
+
+let evenNums = numbers4.filter(isEven); //
+
+console.log(evenNums); //[2, 4, 6, 8, 10]
+
+function isOdd(element) {
+	return element % 2 !== 0;
+}
+
+let oddNums = numbers4.filter(isOdd); //
+
+console.log(oddNums); //[1,3,5,7,9]
+
+//==============
+
+const ages = [16, 17, 18, 18, 19, 21, 73];
+
+function isAdult(element) {
+	return element >= 18;
+}
+
+const adults = ages.filter(isAdult);
+
+console.log(adults); // [18, 18, 19, 21, 73]
+
+function isChild(element) {
+	return element < 18;
+}
+
+const children = ages.filter(isChild);
+
+console.log(children); // [16, 17]
+
+//==============
+
+const words = ["apple", "orange", "banana", "kiwi", "coconut", "pomegranate"];
+
+function getShortWords(element) {
+	return element.length <= 6;
+}
+
+const shortWords = words.filter(getShortWords);
+
+console.log(shortWords); // ["apple", "orange", "banana", "kiwi"]
+
+function getLongWords(element) {
+	return element.length > 6;
+}
+
+const longWords = words.filter(getLongWords);
+
+console.log(longWords); // ["coconut", "pomegranate"]
+
+//==================================================================================================================================================================
+
+// .reduce = reduz os elementos de uma array para um único valor
+
+const prices = [5, 22, 15, 17, 50];
+
+function sum(previous, next) {
+	return previous + next;
+}
+
+const totalPrice = prices.reduce(sum);
+console.log(`$${totalPrice}`); // 109
+
+//==============
+
+const numbers9 = [1, 2, 3, 4, 5, 6];
+const grades = [75, 50, 90, 80, 65, 95];
+
+function getMax(accumulator, next) {
+	return Math.max(accumulator, next);
+}
+
+const maximumScore = grades.reduce(maximum);
+
+console.log(maximumScore); // 95
+
+function getMin(accumulator, next) {
+	return Math.min(accumulator, next);
+}
+
+const minimumScore = grades.reduce(minimum);
+
+console.log(maximumScore); // 50
+
+//==================================================================================================================================================================
+
+// function declaration = define um bloco de código reutilizável que executa uma tarefa específica
+
+function hello() {
+	console.log("Hello!");
+}
+
+hello();
+
+setTimeout(hello, 3000); // setTimeout = função para adicionar um delay a um callback
+
+// function expressions = uma maneira de definir funções como valores ou variáveis
+
+// São usadas em:
+// 1. Callbacks em operações assíncronas
+// 2. Higher-Order Functions
+// 3. Closures
+// 4. Event Listeners
+
+const hello1 = function () {
+	console.log("Hello!");
+};
+
+hello1();
+
+setTimeout(function () {
+	// No javascript podemos passar uma função inteira como argumento, ou tratá-la como valor
+	console.log("Hello!");
+}, 3000);
+
+//==============
+
+//Como fizemos anteriormente, nesse caso usamos uma function declaration, mas também podemos usar uma function expression
+
+const numbers1 = [1, 2, 3, 4, 5, 6];
+
+function square(element) {
+	return Math.pow(element, 2);
+}
+
+const squares1 = number.map(square);
+
+//==============
+//Function expression
+
+const squares2 = number.map(function (element) {
+	return Math.pow(element, 2);
+});
+
+//Mesmo resultado
+//A vantagem é que não precisamos nomear a função, assim deixando de poluir as variáveis globais com nomes de função
+
+const cubes2 = numbers1.map(function (element) {
+	return Math.pow(element, 3);
+});
+
+const evenNums1 = numbers1.filter(function (element) {
+	return element % 2 === 0;
+});
+
+const oddNums1 = numbers1.filter(function (element) {
+	return element % 2 !== 0;
+});
+
+const total2 = numbers1.reduce(function (accumulator, element) {
+	return accumulator + element;
+});
+
+//==================================================================================================================================================================
