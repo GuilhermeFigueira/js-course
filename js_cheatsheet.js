@@ -1772,6 +1772,7 @@ person4.sayHello(); // "Hi! I am Patrick"
 person4.eat(); // Patrick is eating pizza
 
 // Usar this em uma arrow function não funciona
+
 //==============
 
 // Se usarmos this fora de um objeto próprio, ele retorna a própria página, que é o objeto que ele está dentro (window object)
@@ -1818,3 +1819,79 @@ console.log(car1.model); // Charger
 console.log(car1.year); // 2026
 console.log(car1.color); // silver
 car1.drive(); // You drive the Charger
+
+//==================================================================================================================================================================
+
+// class = (ES6 feature) fornece uma maneira mais estruturada e limpa de trabalhar com objetos comparado com funções constructor
+//			tradicional
+//			ex. static keyword, encapsulation, inheritance
+
+// ============== Constructor padrão
+
+function Product(name, price) {
+	this.name = name;
+	this.price = price;
+
+	this.displayProduct = function () {
+		console.log(`Product: ${this.name}`);
+		console.log(`Price? $${this.price.toFixed(2)}`);
+	};
+
+	this.calculateTotal = function (salesTax) {
+		return this.price + this.price * salesTax;
+	};
+}
+
+const salesTax = 0.05;
+
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Pants", 22.5);
+const product3 = new Product("Underwear", 100.0);
+
+product1.displayProduct();
+
+const totalPrice1 = product1.calculateTotal(salesTax);
+
+// ============== Class
+
+class Product {
+	constructor(name, price) {
+		this.name = name;
+		this.price = price;
+	}
+
+	//Dentro de classes, não é necessário usar a keyword "function"
+	displayProduct() {
+		console.log(`Product: ${this.name} `);
+		console.log(`Price: ${this.price.toFixed(2)} `);
+	}
+
+	calculateTotal(salesTax) {
+		return this.price + this.price * salesTax;
+	}
+}
+
+const salesTax1 = 0.05;
+
+const product4 = new Product("Shirt", 19.99);
+const product5 = new Product("Pants", 22.5);
+const product6 = new Product("Underwear", 100.0);
+
+product4.displayProduct();
+//Resultado
+// Product: Shirt
+// Price: 19.99
+
+product5.displayProduct();
+//Resultado
+// Product: Pants
+// Price: 22.50
+
+product5.displayProduct();
+//Resultado
+// Product: Underwear
+// Price: 100.0
+
+const total4 = product4.calculateTotal(salesTax1);
+
+console.log(`Total price (with taxt): $${total4.toFixed(2)}`);
