@@ -1623,3 +1623,198 @@ const total2 = numbers1.reduce(function (accumulator, element) {
 });
 
 //==================================================================================================================================================================
+
+// arrow functions = uma maneira resumida de escrever function expressions, útil para funções simples que são utilizadas apenas uma vez
+//					(parameters) => some code
+
+// Function declaration
+function hello() {
+	console.log("hello");
+}
+
+hello();
+
+//Function expression
+
+const hello2 = function () {
+	console.log("hello");
+};
+
+hello2();
+
+//Arrow function
+
+const hello3 = (name, age) => {
+	console.log(`Hello ${name}`);
+	console.log(`You are ${age} years old`);
+};
+
+hello3("Pedrin games", 32);
+
+//==============
+
+// Function declaration
+setTimeout(hello, 3000); // Depois de 3 segundos loga a mensagem "hello"
+
+//Function expression
+setTimeout(function () {
+	console.log("Hello!");
+}, 3000);
+
+//Arrow function
+setTimeout(() => console.log("Hello!"), 3000);
+
+//==============
+
+const numbers5 = [1, 2, 3, 4, 5, 6];
+
+const squares3 = numbers5.map((element) => Math.pow(element, 2));
+const cubes3 = numbers5.map((element) => Math.pow(element, 3));
+
+console.log(squares3); // [1, 4, 9, 16, 25, 36]
+console.log(cubes3); // [1, 8, 27, 64, 125, 216]
+
+const evenNums2 = numbers5.filter((element) => element % 2 === 0); // Não precisa usar "return" caso for apenas uma linha de código
+const oddNums2 = numbers5.filter((element) => element % 2 !== 0);
+
+const total3 = numbers5.reduce((accumulator, element) => accumulator + element);
+
+console.log(total3); // 21
+
+//==================================================================================================================================================================
+
+// object = Uma coleção de propriedades relacionadas e/ou métodos
+// 			Podem representar objetos do mundo real (pessoas, produtos, lugares)
+//			object = {
+//				key:value,
+//				function()
+//			}
+
+//Não é obrigatório usar const
+const person1 = {
+	firstName: "Spongebob", // string
+	lastName: "Squarepants", // string
+	age: 30, // number
+	isEmployed: true, // boolean
+	sayHello: function () {
+		console.log("Hi! Im am Spongebob!");
+	},
+	// Ou arrow function:
+	// sayHello: () => {
+	// 	console.log("Hi! Im am Spongebob!");
+	// },
+	eat: function () {
+		console.log("I'm eating a Krabby Patty!");
+	},
+};
+
+// Para acessar as propriedades usar "." e o nome da propriedade
+
+console.log(person1.firstName); // "Spongebob"
+console.log(person1.lastName); // "Squarepants"
+console.log(person1.age); // 30
+console.log(person1.isEmployed); // true
+person1.sayHello(); // "Hi! Im am Spongebob!"
+person1.eat(); // "I'm eating a Krabby Patty!"
+
+const person2 = {
+	firstName: "Patrick", // string
+	lastName: "Star", // string
+	age: 42, // number
+	isEmployed: false, // boolean
+	sayHello: function () {
+		console.log("Hey! I'm Patrick");
+	},
+	eat: () => {
+		console.log("I'm eating roast beef and pizza");
+	},
+};
+
+console.log(person2.firstName); // "Patrick"
+console.log(person2.lastName); // "Star"
+console.log(person2.age); // 42
+console.log(person2.isEmployed); // false
+person2.sayHello(); // "Hey! I'm Patrick"
+person2.eat(); // "I'm eating roast beef and pizza"
+
+//==================================================================================================================================================================
+
+// this = referência ao objeto onde THIS é usado (o objeto depende do contexto imediato)
+// 		  person.name = this.name
+
+const person3 = {
+	name: "Spongebob",
+	favoriteFood: "Krabby Patty",
+	sayHello: function () {
+		// console.log(`Hi! I am ${name}`); // Jeito errado, retorna "Hi! I am "
+		console.log(`Hi! I am ${this.name}`); // Não há diferença entre usar person3.name e this.name, só é mais prático
+	},
+	eat: function () {
+		console.log(`${this.name} is eating ${this.favoriteFood}`);
+	},
+};
+
+person3.sayHello(); // "Hi! I am Spongebob"
+person3.eat(); // Spongebob is eating Krabby Patty
+
+const person4 = {
+	name: "Patrick",
+	favoriteFood: "Pizza",
+	sayHello: function () {
+		console.log(`Hi! I am ${this.name}`);
+	},
+	eat: function () {
+		console.log(`${this.name} is eating ${this.favoriteFood}`);
+	},
+};
+
+person4.sayHello(); // "Hi! I am Patrick"
+person4.eat(); // Patrick is eating pizza
+
+// Usar this em uma arrow function não funciona
+//==============
+
+// Se usarmos this fora de um objeto próprio, ele retorna a própria página, que é o objeto que ele está dentro (window object)
+
+console.log(this);
+
+//==================================================================================================================================================================
+
+// constructor = método especial para definir as propriedades e métodos de objetos
+//				Ajuda com a reusabilidade do código, usamos para criar vários objetos com as mesmas propriedades, sem precisar escrever
+//				eles manualmente
+
+//		 A primeira letra tem que estar maiúscula
+function Car(make, model, year, color) {
+	this.make = make;
+	this.model = model;
+	this.year = year;
+	this.color = color;
+	this.drive = function () {
+		console.log(`You drive the ${this.model}`);
+	};
+}
+
+const car1 = new Car("Ford", "Mustang", 2024, "red");
+
+console.log(car1.make); // Ford
+console.log(car1.model); // Mustang
+console.log(car1.year); // 2024
+console.log(car1.color); // red
+car1.drive(); // You drive the Mustang
+
+const car2 = new Car("Chevrolet", "Camaro", 2025, "blue");
+
+console.log(car1.make); // Chevrolet
+console.log(car1.model); // Camaro
+console.log(car1.year); // 2025
+console.log(car1.color); // blue
+car1.drive(); // You drive the Camaro
+
+const car3 = new Car("Dodge", "Charger", 2026, "silver");
+
+console.log(car1.make); // Dodge
+console.log(car1.model); // Charger
+console.log(car1.year); // 2026
+console.log(car1.color); // silver
+car1.drive(); // You drive the Charger
