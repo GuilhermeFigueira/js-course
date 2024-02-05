@@ -1895,3 +1895,203 @@ product5.displayProduct();
 const total4 = product4.calculateTotal(salesTax1);
 
 console.log(`Total price (with taxt): $${total4.toFixed(2)}`);
+
+//==================================================================================================================================================================
+
+// static = keyword que define propriedades ou métodos que pertence a própria class ao invés dos objects
+//			criados por ela (a class possui qualquer coisa static, não o object)
+
+// class MathUtil {
+// 	static PI = 3.14159;
+// }
+
+// console.log(MathUtil.PI); // 3.14159
+
+//Não é necessário declarar um novo objeto para acessar a variável PI, pegamos ela da própria class
+
+// const mathUtil1 = new MathUtil();
+
+// console.log(mathUtil1.PI); // 3.14159
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Não é necessário
+
+// ==============
+
+class MathUtil {
+	static PI = 3.14159;
+
+	static getDiameter(radius) {
+		return radius * 2;
+	}
+
+	static getCircumference(radius) {
+		return 2 * this.PI * radius;
+	}
+	static getArea(radius) {
+		return this.PI * radius * radius;
+	}
+}
+
+console.log(MathUtil.PI); // 3.14159
+console.log(MathUtil.getDiameter(10)); // 20
+console.log(MathUtil.getCircumference(10)); // 62.8318
+console.log(MathUtil.getArea(10)); // 314.159
+
+// ==============
+
+class User {
+	static userCount = 0;
+
+	constructor(username) {
+		this.username = username;
+		User.userCount++;
+	}
+
+	static getUserCount() {
+		console.log(`There are ${User.userCount} users online.`);
+	}
+
+	sayHello() {
+		console.log(`Hello, my username is ${this.username}`);
+	}
+}
+
+const user1 = new User("Spongebob");
+
+console.log(user1.username); // Spongebob
+console.log(user1.userCount); // undefined, pois a variável userCount pertence a class
+
+console.log(User.userCount); // 1
+
+const user2 = new User("Patrick");
+
+console.log(user1.username); // Patrick
+
+console.log(User.userCount); // 2
+
+const user3 = new User("Sandy");
+
+console.log(user1.username); // Sandy
+
+console.log(User.userCount); // 3
+
+user1.sayHello(); // Hello, my username is Spongebob
+user2.sayHello(); // Hello, my username is Patrick
+user3.sayHello(); // Hello, my username is Sandy
+
+User.getUserCount(); // There are 3 users online
+
+//==================================================================================================================================================================
+
+// inheritance = permite que uma nova class herde propriedades e métodos de uma class existente (parent -> child)
+//				 ajuda com a reusabilidade de código
+
+class Animal {
+	alive = true;
+
+	eat() {
+		console.log(`This ${this.name} is eating`);
+	}
+	sleep() {
+		console.log(`This ${this.name} is sleeping`);
+	}
+}
+
+class Rabbit extends Animal {
+	name = "Rabbit";
+	run() {
+		console.log(`This ${this.name} is running`);
+	}
+}
+
+class Fish extends Animal {
+	name = "Fish";
+	swim() {
+		console.log(`This ${this.name} is swimming`);
+	}
+}
+class Hawk extends Animal {
+	name = "Hawk";
+	fly() {
+		console.log(`This ${this.name} is flying`);
+	}
+}
+
+const rabbit1 = new Rabbit();
+const fish1 = new Fish();
+const hawk1 = new Hawk();
+
+console.log(rabbit1.alive); // true
+rabbit1.eat(); // This Rabbit is eating
+rabbit1.sleep(); // This Rabbit is sleeping
+rabbit1.run(); // This Rabbit is running (função exclusiva da class Rabbit)
+
+console.log(fish1.alive); // true
+fish1.eat(); // This Fish is eating
+fish1.sleep(); // This Fish is sleeping
+fish1.swim(); // This Fish is swimming (função exclusiva da class Fish)
+
+console.log(hawk1.alive); // true
+hawk1.eat(); // This Hawk is eating
+hawk1.sleep(); // This Hawk is sleeping
+hawk1.fly(); // This Hawk is flying (função exclusiva da class Fish)
+
+//==================================================================================================================================================================
+
+// super = keyword é usada em classes para chamar o constructor ou acessar as propriedades e métodos de um parent (superclass)
+//			this = this object
+//			super = the parent
+
+class Animal {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	move() {
+		console.log(`This ${this.name} can move at a speed of ${speed}km/h`);
+	}
+}
+
+class Rabbit extends Animal {
+	constructor(name, age, runSpeed) {
+		super(name, age); // Executa o constructor da class Animal (parent),
+		// assim todas as propriedades que as classes children tem em comum, podemos passar para o constructor do parent
+		this.runSpeed = runSpeed;
+	}
+	run() {
+		console.log(`This ${this.name} can run`);
+		super.move(this.runSpeed);
+	}
+}
+
+class Fish extends Animal {
+	constructor(name, age, swimSpeed) {
+		super(name, age);
+		this.swimSpeed = swimSpeed;
+	}
+
+	swim() {
+		console.log(`This ${this.name} can swim`);
+		super.move(this.swimSpeed);
+	}
+}
+
+class Hawk extends Animal {
+	constructor(name, age, flySpeed) {
+		super(name, age);
+		this.flySpeed = flySpeed;
+	}
+
+	fly() {
+		console.log(`This ${this.name} can fly`);
+		super.move(this.flySpeed);
+	}
+}
+
+const rabbit2 = new Rabbit("rabbit", 1, 40);
+const fish2 = new Rabbit("fish", 2, 20);
+const hawk2 = new Rabbit("hawk", 4, 80);
+
+rabbit2.run(); // This rabbit can run; This rabbit can move at a speed of 40 km/h
+fish2.swim(); // This fish can swim; This fish can move at a speed of 20 km/h
+hawk2.fly(); // This hawk can fly; This hawk can move at a speed of 80 km/h
