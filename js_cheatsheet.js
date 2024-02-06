@@ -2095,3 +2095,172 @@ const hawk2 = new Rabbit("hawk", 4, 80);
 rabbit2.run(); // This rabbit can run; This rabbit can move at a speed of 40 km/h
 fish2.swim(); // This fish can swim; This fish can move at a speed of 20 km/h
 hawk2.fly(); // This hawk can fly; This hawk can move at a speed of 80 km/h
+
+//==================================================================================================================================================================
+
+// getter = método especial que faz com que uma propriedade seja legível
+// setter = método especial que faz com que uma propriedade seja gravável
+
+// valida e modifica um valor quando estiver lendo/gravando uma propriedade
+
+class Rectangle {
+	constructor(width, height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	set width(newWidth) {
+		if (newWidth > 0) {
+			this._width = newWidth;
+		} else {
+			console.error("Width must be a positive number");
+		}
+	}
+
+	set height(newHeight) {
+		if (newHeight > 0) {
+			this._height = newHeight;
+		} else {
+			console.error("Height must be a positive number");
+		}
+	}
+
+	get width() {
+		return `${this._width.toFixed(1)} cm`;
+	}
+
+	get height() {
+		return `${this._height.toFixed(1)} cm`;
+	}
+
+	get area() {
+		return `${(this._width * this._height).toFixed(1)} cm`;
+	}
+}
+
+const rectangle = new Rectangle(-10000, "whatsapp");
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+//Resultado
+//🚩Width must be a positive number
+//🚩Height must be a positive number
+// undefined
+// undefined
+
+const rectangle1 = new Rectangle(3, 4);
+
+console.log(rectangle1.width); // 3.0 cm
+console.log(rectangle1.height); // 4.0 cm
+// Caso o get não estiver definido retorna undefined, porque o height e width são graváveis via setters mas não legíveis, por isso devemos definir os getters
+
+rectangle1.width = 5;
+rectangle1.height = 6;
+console.log(rectangle1.area); // 30.0 cm
+
+// ==============
+
+class Person {
+	constructor(firstName, lastName, age) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+
+	set firstName(newFirstName) {
+		if (typeof newFirstName === "string" && newFirstName.length > 0) {
+			this._firstName = newFirstName;
+		} else {
+			console.error("First name must be a non empty string");
+		}
+	}
+
+	set lastName(newLastName) {
+		if (typeof newLastName === "string" && newLastName.length > 0) {
+			this._lastName = newLastName;
+		} else {
+			console.error("Last name must be a non empty string");
+		}
+	}
+
+	set age(newAge) {
+		if (typeof newAge === "number" && newAge >= 0) {
+			this._age = newAge;
+		} else {
+			console.error("Age must be a non negative number");
+		}
+	}
+
+	get firstName() {
+		return this._firstName;
+	}
+
+	get firstName() {
+		return this._lastName;
+	}
+
+	get fullName() {
+		return this._firstName + " " + this._lastName;
+	}
+
+	get age() {
+		return this._age;
+	}
+}
+
+const person5 = new Person(420, 69, "whatsapp");
+
+console.log(person5.firstName); // 420
+console.log(person5.lastName); // 69
+console.log(person5.age); // whatsapp
+// Resultado com validação
+//🚩First name must be a non empty string
+//🚩Last name must be a non empty string
+//🚩Age must be a non negative number
+// undefined
+// undefined
+// undefined
+
+const person6 = new Person("Spongebob", "Squarepants", 30);
+
+console.log(person6.firstName); // Spongebob
+console.log(person6.lastName); // Squarepants
+console.log(person6.age); // 30
+
+//==================================================================================================================================================================
+
+// destructuring = extrair valores de arrays e objetos, depois atribuí-las a variáveis de uma maneira conveniente
+//					[] = para realizar destructuring de uma array
+//					{} = para realizar destructuring de um objeto
+
+let a = 1;
+let b = 2;
+
+//destructuring
+//vvv
+[a, b] = [b, a];
+//		 ^^^^^^
+//		criando uma array
+
+console.log(a); // 2
+console.log(b); // 1
+
+// ==============
+
+const colors = ["red", "green", "blue", "black", "white"];
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+// Inverte os valores da posição 0 com a posição 4 (red, white) => (white, red)
+
+console.log(colors); // ["white", "green", "blue", "black", "red"]
+
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+console.log(firstColor); // white
+console.log(secondColor); // green
+console.log(thirdColor); // blue
+
+console.log(extraColors);
+["black", "red"];
+
+// ==============
