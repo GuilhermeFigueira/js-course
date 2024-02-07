@@ -2264,3 +2264,44 @@ console.log(extraColors);
 ["black", "red"];
 
 // ==============
+
+const person7 = {
+	firstName: "Spongebob",
+	lastName: "Squarepants",
+	age: 30,
+	job: "Fry Cook",
+};
+
+const person8 = {
+	firstName: "Patrick",
+	lastName: "Star",
+	age: 30,
+};
+//											Valor default caso o objeto não tenha uma propriedade que outros tem
+//											vvvvvvvvvv
+const { firstName4, lastName4, age4, job = "Unemployed" } = person7;
+
+console.log(firstName4); // Spongebob
+console.log(lastName4); // Squarepants
+console.log(age4); // 30
+console.log(job); // Fry Cook
+
+function displayPerson({ firstName, lastName, age, job = "Unemployed" }) {
+	console.log(`Name: ${firstName} ${lastName} `);
+	console.log(`Age: ${age} `);
+	console.log(`Job: ${job} `);
+}
+
+displayPerson(person7);
+//Resultado
+//Name: Spongebob Squarepants
+//Age: 30
+//Job: Fry cook
+
+displayPerson(person8);
+//Resultado
+//Name: Patrick Star
+//Age: 30
+//Job: Unemployed
+
+//==================================================================================================================================================================
