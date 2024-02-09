@@ -2305,3 +2305,110 @@ displayPerson(person8);
 //Job: Unemployed
 
 //==================================================================================================================================================================
+
+// nested objects = Objetos dentro de outros Objetos
+//					Permite representar estruturas de dados mais complexos
+//					Child Object é anexado por um Parent Object
+
+//					Person{Address{}, ContactInfo{}}
+//					ShoppingCart{Keyboard{}, Mouse{}, Monitor{}}
+
+const person = {
+	fullName: "Spongebob Squarepants",
+	age: 30,
+	isStudent: true,
+	hobbies: ["Karate", "Jellyfishing", "Cooking"],
+	address: {
+		street: "124 Conch St.",
+		city: "Bikini Bottom",
+		country: "Int. Water",
+	},
+};
+
+console.log(person.fullName); // Spongebob Squarepants
+console.log(person.age); // 30
+console.log(person.isStudent); // true
+console.log(person.hobbies); //["Karate", "Jellyfishing", "Cooking"],
+// Retorna o array inteiro, mas podemos selecionar apenas um passando um index
+console.log(person.hobbies[0]); // Karate
+console.log(person.address);
+
+// Retorna o objeto inteiro,  mas podemos selecionar apenas um passando a propriedade
+console.log(person.address.street); // 124 Conch St.
+console.log(person.address.city); // Bikini Bottom124 Conch St.
+console.log(person.address.country); // Int. Water
+
+// Para exibir todas as propriedades de um objeto nested sem ter que ir de uma em uma podemos usar o laço for
+
+for (const property in person.address) {
+	console.log(person.address[property]);
+}
+
+//Resultado
+// 124 Conch St.
+// Bikini Bottom124 Conch St.
+// Int. Water
+
+// ==============
+
+class Person {
+	constructor(name, age, ...address) {
+		this.name = name;
+		this.age = age;
+		this.address = new Address(...address);
+	}
+}
+
+class Address {
+	constructor(street, city, country) {
+		this.street = street;
+		this.city = city;
+		this.country = country;
+	}
+}
+
+const person9 = new Person(
+	"Spongebob",
+	30,
+	"124 Conch St.",
+	"Bikini Bottom",
+	"International Waters"
+);
+
+const person10 = new Person(
+	"Patrick",
+	37,
+	"128 Conch St.",
+	"Bikini Bottom",
+	"International Waters"
+);
+
+const person11 = new Person(
+	"Squidward",
+	45,
+	"126 Conch St.",
+	"Bikini Bottom",
+	"International Waters"
+);
+
+console.log(person9.address);
+//Resultado
+//Address:{
+//	"124 Conch St.",
+//	"Bikini Bottom",
+//	"International Waters";
+//}
+console.log(person10.address);
+//Resultado
+//Address:{
+//	"128 Conch St.",
+//	"Bikini Bottom",
+//	"International Waters";
+//}
+console.log(person11.address);
+//Resultado
+//Address:{
+//	"126 Conch St.",
+//	"Bikini Bottom",
+//	"International Waters";
+//}
