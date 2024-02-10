@@ -2412,3 +2412,139 @@ console.log(person11.address);
 //	"Bikini Bottom",
 //	"International Waters";
 //}
+
+//==================================================================================================================================================================
+
+// array of objects
+
+const fruits = [
+	{ name: "apple", color: "red", calories: "95" },
+	{ name: "orange", color: "orange", calories: "45" },
+	{ name: "banana", color: "yellow", calories: "105" },
+	{ name: "coconut", color: "white", calories: "159" },
+	{ name: "pineapple", color: "yellow", calories: "37" },
+];
+
+console.log(fruits[0].name); // apple
+console.log(fruits[1].name); // orange
+console.log(fruits[2].name); // banana
+console.log(fruits[3].name); // coconut
+console.log(fruits[4].name); // pineapple
+
+console.log(fruits[0].calories); // 95
+console.log(fruits[1].calories); // 45
+console.log(fruits[2].calories); // 105
+console.log(fruits[3].calories); // 159
+console.log(fruits[4].calories); // 37
+
+fruits.push({ name: "grapes", color: "purple", calories: "62" });
+
+console.log(fruits);
+// [
+// 	{ name: "apple", color: "red", calories: "95" },
+// 	{ name: "orange", color: "orange", calories: "45" },
+// 	{ name: "banana", color: "yellow", calories: "105" },
+// 	{ name: "coconut", color: "white", calories: "159" },
+// 	{ name: "pineapple", color: "yellow", calories: "37" },
+// 	{ name: "grapes", color: "purple", calories: "62" }
+// ];
+
+fruits.pop();
+
+console.log(fruits);
+// [
+// 	{ name: "apple", color: "red", calories: "95" },
+// 	{ name: "orange", color: "orange", calories: "45" },
+// 	{ name: "banana", color: "yellow", calories: "105" },
+// 	{ name: "coconut", color: "white", calories: "159" },
+// 	{ name: "pineapple", color: "yellow", calories: "37" },
+// ];
+
+fruits.splice(1, 3);
+
+console.log(fruits);
+// [
+// 	{ name: "apple", color: "red", calories: "95" },
+// 	{ name: "pineapple", color: "yellow", calories: "37" },
+// ];
+
+// ============== forEach()
+
+fruits.forEach((fruit) => {
+	console.log(fruit.color);
+});
+//red
+//yellow
+
+// ============== map()
+
+const fruitName = fruits.map((fruit) => fruit.name);
+const fruitColors = fruits.map((fruit) => fruit.color);
+const fruitCalories = fruits.map((fruit) => fruit.calories);
+
+console.log(fruitName);
+//["apple", "pineapple"]
+
+console.log(fruitColors);
+//["red", "yellow"]
+
+console.log(fruitCalories);
+//[95, 37]
+
+// ============== filter()
+
+const yellowFruits = fruits.filter((fruit) => fruit.color === "yellow");
+
+console.log(yellowFruits);
+// { name: "pineapple", color: "yellow", calories: "37" }
+
+const lowCalorieFruits = fruits.filter((fruit) => fruit.calories < 100);
+
+console.log(lowCalorieFruits);
+
+//	{ name: "apple", color: "red", calories: "95" },
+// 	{ name: "pineapple", color: "yellow", calories: "37" },
+
+// ============== reduce()
+
+const fruits = [
+	{ name: "apple", color: "red", calories: "95" },
+	{ name: "orange", color: "orange", calories: "45" },
+	{ name: "banana", color: "yellow", calories: "105" },
+	{ name: "coconut", color: "white", calories: "159" },
+	{ name: "pineapple", color: "yellow", calories: "37" },
+];
+
+const maxFruit = fruits.reduce((max, fruit) =>
+	fruit.calories > max.calories ? fruit : max
+);
+
+const minFruit = fruits.reduce((min, fruit) =>
+	fruit.calories < min.calories ? fruit : min
+);
+
+console.log(maxFruit);
+// { name: "coconut", color: "white", calories: "159" },
+
+console.log(minFruit);
+// { name: "pineapple", color: "yellow", calories: "37" },
+
+//==================================================================================================================================================================
+
+// sort() = method usado para organizar/ordenar elementos de uma array
+//			Organiza elementos como strings em uma ordem lexicográfica, não alfabética
+//			lexicográfica = (alfabeto + números + símbolos) como strings
+
+let fruits = ["apple", "orange", "banana", "coconut", "pineapple"];
+
+fruits.sort();
+
+console.log(fruits);
+//["apple", "banana", "coconut", "coconut", "pineapple"];
+
+let numbers6 = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+
+numbers6.sort();
+
+console.log(numbers6);
+// [1, 10, 2, 3, 4, 5, 6, 7, 8, 9];
