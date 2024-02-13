@@ -2548,3 +2548,101 @@ numbers6.sort();
 
 console.log(numbers6);
 // [1, 10, 2, 3, 4, 5, 6, 7, 8, 9];
+
+//Para ordenar os números em ordem crescente ou decrescente é necessário passar um callback
+
+numbers6.sort((a, b) => a - b);
+//Essa função compara dois números, fazendo a subtração que retorna um valor positivo, 0 ou um valor negativo
+
+console.log(numbers6);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Ordem decrescente
+
+numbers6.sort((a, b) => b - a);
+
+console.log(numbers6);
+// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+// ==============
+
+const people = [
+	{ name: "Spongebob", age: 30, gpa: 3.0 },
+	{ name: "Patrick", age: 37, gpa: 1.5 },
+	{ name: "Squidward", age: 51, gpa: 2.5 },
+	{ name: "Sandy", age: 27, gpa: 4.5 },
+];
+
+// Ordem crescente de idade
+people.sort((a, b) => a.age - b.age);
+
+console.log(people);
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+
+// Ordem decrescente de idade
+people.sort((a, b) => b.age - a.age);
+
+console.log(people);
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+
+// Ordem crescente de gpa
+people.sort((a, b) => a.gpa - b.gpa);
+
+console.log(people);
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+
+// Ordem decrescente de gpa
+people.sort((a, b) => b.gpa - a.gpa);
+
+console.log(people);
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+
+// Ordem lexográfica
+people.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(people);
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+
+// Ordem lexográfica reversa
+people.sort((a, b) => b.name.localeCompare(a.name));
+
+console.log(people);
+// 	{ name: "Squidward", age: 51, gpa: 2.5 },
+// 	{ name: "Spongebob", age: 30, gpa: 3.0 },
+// 	{ name: "Sandy", age: 27, gpa: 4.5 },
+// 	{ name: "Patrick", age: 37, gpa: 1.5 },
+
+//==================================================================================================================================================================
+
+// Como embaralhar elementos de uma array
+
+// O método mais recomendado é o algorítimo de Fisher-Yates
+
+const cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+
+shuffle(cards);
+
+function shuffle(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const random = Math.floor(Math.random() * (i + 1));
+
+		[array[i], array[random]] = [array[random], array[i]];
+	}
+}
+
+//==================================================================================================================================================================
