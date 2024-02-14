@@ -549,8 +549,8 @@ userName = userName.trim(); // Retira todos os espaços em branco
 
 //==============
 
-userName = userName.toUpperCase; // Passa a string para caixa alta
-userName = userName.toLowerCase; // Passa a string para caixa baixa
+userName = userName.toUpperCase(); // Passa a string para caixa alta
+userName = userName.toLowerCase(); // Passa a string para caixa baixa
 
 //==============
 
@@ -2646,3 +2646,78 @@ function shuffle(array) {
 }
 
 //==================================================================================================================================================================
+
+// Date objects = objects que contém valores e representam datas e horas, esses valores podem ser modificados e formatados
+
+// Date(ano, mês, dia, hora, minuto, segundo, milissegundo)
+const date = new Date();
+
+console.log(date);
+//Wed Feb 14 2024 11:29:20 GMT-0300 (Horário Padrão de Brasília)
+
+const date1 = new Date(2024, 0, 1, 2, 3, 4, 5);
+
+console.log(date1);
+//Mon Jan 1 2024 02:03:04 GMT-0300 (Horário Padrão de Brasília)
+
+const date2 = new Date("2024-01-02T12:00:00Z");
+
+console.log(date2);
+//Tue Jan 02 2024 06:00:00 GMT-0300 (Horário Padrão de Brasília)
+
+//Podemos passar quanto tempo em milissegundos desde o epic (quando o seu computador acha que o tempo começou)
+const date3 = new Date(0);
+
+console.log(date3);
+//Wed Dec 31 1969 21:00:00 GMT-0300 (Horário Padrão de Brasília)
+
+const date4 = new Date(1700000000000);
+
+console.log(date4);
+//Tue Nov 14 2023 16:13:20 GMT-0300 (Horário Padrão de Brasília)
+
+// ==============
+
+const year = date.getFullYear();
+const month = date.getMonth();
+const day1 = date.getDate();
+const hour = date.getHours();
+const minutes = date.getMinutes();
+const seconds = date.getSeconds();
+const dayOfWeek = date.getDay();
+
+console.log(year);
+// 2024
+console.log(month);
+// 02
+console.log(day1);
+// 14
+console.log(hour);
+// 12
+console.log(minutes);
+// 43
+console.log(seconds);
+// 32
+console.log(dayOfWeek);
+// 3 (Domingo = 0, Segunda = 1, Terça = , Quarta = 3)
+
+// ==============
+
+date.setFullYear(2025);
+date.setMonth(0);
+date.setDate(1);
+date.setHours(2);
+date.setMinutes(3);
+date.setSeconds(4);
+
+console.log(date);
+//Mon Jan 1 2024 02:03:04 GMT-0300 (Horário Padrão de Brasília)
+
+// ==============
+
+const date5 = new Date("2023-12-31");
+const date6 = new Date("2024-01-01");
+
+if (date6 > date5) {
+	console.log("Happy new Year!");
+}
