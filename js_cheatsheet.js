@@ -2721,3 +2721,45 @@ const date6 = new Date("2024-01-01");
 if (date6 > date5) {
 	console.log("Happy new Year!");
 }
+
+//==================================================================================================================================================================
+
+// closure = Uma função definida dentro de outra função, a função interna tem acesso às variáveis e escopo da função externa
+//			Permite o uso de variáveis privadas e manutenção de estado
+//			Usado frequentemente em frameworks JS: React, Vue, Angular
+
+function outer() {
+	let message = "Hello";
+	function inner() {
+		console.log(message);
+		//Hello
+	}
+}
+
+outer();
+//... Nada acontece
+
+// ==============
+
+function outer() {
+	let message = "Hello";
+	function inner() {
+		console.log(message);
+	}
+
+	inner();
+}
+
+message = "Goodbye";
+//Não funciona
+
+outer();
+//Hello
+
+// ==============
+
+function increment() {
+	let count = 0;
+	count++;
+	console.log(`Count increased to ${count}`);
+}
