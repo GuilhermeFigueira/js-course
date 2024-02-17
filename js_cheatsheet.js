@@ -2758,8 +2758,120 @@ outer();
 
 // ==============
 
+//Para manter o estado de alguma variável podemos fazer desse jeito
+let count = 0;
+
+count = 100;
 function increment() {
-	let count = 0;
 	count++;
 	console.log(`Count increased to ${count}`);
 }
+
+increment(); //Count increased to 101
+increment(); //Count increased to 102
+increment(); //Count increased to 103
+increment(); //Count increased to 104
+increment(); //Count increased to 105
+
+//Mas a variável count não é privada, qualquer um em qualquer lugar pode sem querer atualizar ela
+
+//Para isso usamos closures, que permitem manter o estado deixando a variável count privada
+
+function createCounter() {
+	let count = 0;
+
+	count = 100;
+	function increment() {
+		count++;
+		console.log(`Count increased to ${count}`);
+	}
+
+	function getCount() {
+		return count;
+	}
+	// Estamos retornando uma propriedade increment com a função increment (similar as classes), o mesmo acontece com o getCount
+	return { increment: increment, getCount: getCount };
+	// Também podemos retornar dessa maneira para facilitar
+	// return { increment, getCount };
+}
+
+const counter = createCounter();
+
+counter.increment(); //Count increased to 1
+counter.increment(); //Count increased to 2
+counter.increment(); //Count increased to 3
+
+console.log(`The current count is ${counter.getCount()}`);
+
+// Assim a variável count fica "escondida"
+// É bem similar a criação de classes
+
+// ==============
+
+function createGame() {
+	let score = 0;
+
+	function increaseScore(points) {
+		score += points;
+		console.log(`+${points}pts`);
+	}
+
+	function decreaseScore(points) {
+		score -= points;
+		console.log(`-${points}pts`);
+	}
+
+	function getScore(points) {
+		return score;
+	}
+	return { increaseScore, decreaseScore, getScore };
+}
+
+const game = createGame();
+
+game.increaseScore(3);
+game.decreaseScore(8);
+game.increaseScore(12);
+console.log(`The final score is ${game.getScore()}pts`); //The final score is 7pts
+
+//==================================================================================================================================================================
+
+// setTimeout() = função no javascript que permite agendar a execução de um função após um determinado tempo (milissegundos)
+//				  Esse tempo é aproximado (varia baseado na carga de trabalho do tempo de execução do ambiente javascript)
+//			 	  (Não é recomendado para coisas precisas como um cronômetro)
+//				  setTimeout(callback, delay)
+
+function sayHello() {
+	window.alert("Hello");
+}
+
+setTimeout(sayHello, 3000);
+//Executa a função sayHello após 3 segundos
+
+//Também funciona
+setTimeout(function () {
+	window.alert("Hello");
+}, 3000);
+
+//Também funciona
+setTimeout(() => {
+	window.alert("Hello");
+}, 3000);
+
+// clearTimeout(timeoutId) = pode cancelar um timeout antes de acontecer
+
+const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+
+clearTimeout(timeoutId);
+//...
+//...
+//...
+//Nada aconteceu...
+
+//==================================================================================================================================================================
+
+// Ver "./digital-clock"
+
+//==================================================================================================================================================================
+
+// Ver "./stopwatch-program"
