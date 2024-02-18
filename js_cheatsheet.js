@@ -2875,3 +2875,10 @@ clearTimeout(timeoutId);
 //==================================================================================================================================================================
 
 // Ver "./stopwatch-program"
+
+//==================================================================================================================================================================
+
+//ES6 Module = Um arquivo externo que contém código reutilizável, que pode ser importado em outros arquivos Javascript
+//			   Você pode escrever código reutilizável para usar em vários programas
+//			   Pode conter variáveis, classes, funções ... e mais
+//			   Foi introduzido como parte do ECMAScript 2015 update
