@@ -2882,3 +2882,124 @@ clearTimeout(timeoutId);
 //			   Você pode escrever código reutilizável para usar em vários programas
 //			   Pode conter variáveis, classes, funções ... e mais
 //			   Foi introduzido como parte do ECMAScript 2015 update
+
+// Ver "./ES6-module-example"
+
+//==================================================================================================================================================================
+
+// synchronous = Executa linha por linha consecutivamente em uma maneira sequencial
+//				 Código que espera uma operação completar
+
+// asynchronous = Permite que várias operações sejam executadas	simultaneamente sem esperar
+//				  Não bloqueia o flow de execução e permite o programa continuar
+//				  (I/O operations, network requests, fetching data)
+//				  É feito com: Callbacks, Promises, Async/Await
+//				  Comumente usado em qualquer coisa que possa levar um tempo indeterminado
+
+//synchronous
+console.log("Task 1"); //Só passa para Task 2 quando a 1 terminar de executar
+console.log("Task 2"); //Só passa para Task 3 quando a 2 terminar de executar
+console.log("Task 3");
+
+// asynchronous
+
+setTimeout(() => console.log("Task 1"), 3000); //Função assíncrona
+console.log("Task 2");
+console.log("Task 3");
+console.log("Task 4");
+
+//Resultado
+//Task 2
+//Task 3
+//Task 4
+//...
+//...
+//Task 1
+
+//Porém se as tasks 2, 3 e 4 dependem da task 1, podemos usá-las como callback
+
+function func1(callback) {
+	setTimeout(() => {
+		console.log("Task 1");
+		callback();
+	}, 3000);
+}
+
+function func2() {
+	console.log("Task 2");
+	console.log("Task 3");
+	console.log("Task 4");
+}
+
+func1(func2);
+
+//Resultado
+//...
+//...
+//...
+//Task 1
+//Task 2
+//Task 3
+//Task 4
+
+//(Veremos Promises e Async/Await mais pra frente)
+
+//==================================================================================================================================================================
+
+//Error = Um object que é criado para representar um problema que ocorreu
+//		  Usado frequentemente com input do usuário ou quando estabelecendo uma conexão
+//
+
+//      vvv
+console.lag("Hello"); // Uncaught type error
+
+console.log("You have reached the end"); //Essa função não executa
+
+// ==============
+
+console.log(x); // Uncaught reference error: x is not defined
+
+console.log("You have reached the end"); //Essa função não executa
+
+//Podemos tratar esses erros com
+// try { } = Envolve o código que potencialmente pode causar algum erro
+// catch { } = Pega e trata qualquer Error do try { }
+// finally { } = (opcional) Sempre executa. Mais usado para limpeza ex. fechar arquivos, fechar conexões, liberar recursos
+
+try {
+	console.log(x); //
+} catch (error) {
+	console.error(error); // Reference error: x is not defined
+	//	console.log(error); // console.error faz a mesma coisa que o log, porém o .error destaca a mensagem
+} finally {
+	// FECHAR ARQUIVOS
+	// FECHAR CONEXÕES
+	// LIBERAR RECURSOS
+	console.log("This always executes"); //Mesmo que o try tenha dado erro, o finally sempre executa
+}
+
+console.log("You have reached the end"); // Essa função executa agora
+
+// ==============
+
+try {
+	const dividend = Number(window.prompt("Enter a dividend"));
+	const divisor = Number(window.prompt("Enter a divisor"));
+
+	//Podemos propositalmente causar um erro, que nesse caso é dividir por 0, que retorna "Infinity"
+	if (divisor === 0) {
+		throw new Error("You can't divide by zero");
+	}
+	if (isNaN(dividend) || isNaN(divisor)) {
+		throw new Error("Values must be a number");
+	}
+
+	const result1 = dividend / divisor;
+	console.log(result1);
+} catch (error) {
+	console.error(error);
+}
+
+//==================================================================================================================================================================
+
+// Ver "./calculator-program"
