@@ -3003,3 +3003,19 @@ try {
 //==================================================================================================================================================================
 
 // Ver "./calculator-program"
+
+//==================================================================================================================================================================
+
+//DOM = DOCUMENT OBJECT MODEL
+//		Object{} que representa a página que você ve no browser e fornece uma API para interagir com ela
+//		O browser constrói o DOM quando carrega um documento HTML, e estrutura todos os elementos semelhante a uma representação de uma árvore
+//		O javascript pode acessar o DOM para dinamicamente mudar o conteúdo, estrutura e estilo de uma página web
+//		Ver "./dom.png"
+
+document.getElementById(); //Uso da DOM
+
+console.log(document); //Retorna a página HTML inteira
+
+console.dir(document); //Retorna todas as propriedades do objeto document
+
+document.title = "Whatsapp"; // Estamos acessando uma propriedade do objeto document e modificando
