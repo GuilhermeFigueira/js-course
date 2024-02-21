@@ -3019,3 +3019,18 @@ console.log(document); //Retorna a página HTML inteira
 console.dir(document); //Retorna todas as propriedades do objeto document
 
 document.title = "Whatsapp"; // Estamos acessando uma propriedade do objeto document e modificando
+
+document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de fundo do body do HTML pelo javascript
+
+//==================================================================================================================================================================
+
+// element selectors = Métodos usados para 	selecionar e manipular elementos HTML
+//					   Eles permitem você selecionar um ou múltiplos elementos HTML da DOM
+
+// 1. document.getElementById()			// ELEMENT OU NULL
+// 2. document.getElementsClassName()	// COLEÇÃO HTML
+// 3. document.getElementsByTagName()	// COLEÇÃO HTML
+// 4. document.querySelector()			// ELEMENT OU NULL
+// 5. document.querySelectorAll( )		// NODELIST
+
+//Ver "./element-selectors"
