@@ -3034,3 +3034,15 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 // 5. document.querySelectorAll( )		// NODELIST
 
 //Ver "./element-selectors"
+
+//==================================================================================================================================================================
+
+//DOM Navigation = O processo de navegar através da estrutura de um documento HTML usando javascript
+
+//Elementos HTML incluem mas não são limitados as seguintes propriedades
+//.firstElementChild
+//.lastElementChild
+//.nextElementSibling
+//.previousElementSibling
+//.firstElementElement
+//.children
