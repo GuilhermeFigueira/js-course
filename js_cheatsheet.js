@@ -3098,3 +3098,7 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 // .toggle(Remove se a classe estiver presente, adiciona se não)
 // .replace(classeAntiga, classeNova)
 // .contains()
+
+//==================================================================================================================================================================
+
+// Ver "./rock-paper-scissors"

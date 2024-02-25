@@ -15,7 +15,10 @@
 	font-weight: bold;
 }
 
-.enabled {
+.disabled {
 	background-color: hsl(0, 0%, 60%);
-	color: hsl(0, 0%, 50%);
+	color: hsl(0, 0%, 80%);
+}
+#myH1 {
+	font-size: 5rem;
 }
