@@ -3070,3 +3070,13 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 // eventListener = permite que você configure funções a serem chamadas para criar paginas interativas
 //				   eventos: keydown, keyup
 //				   document.addEventListener(event,callback)
+
+// Ver "./key-events"
+
+//==================================================================================================================================================================
+
+// Esconder e mostrar HTML
+
+// Ver "./hide-html"
+
+//==================================================================================================================================================================
