@@ -3048,3 +3048,25 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 //.children
 
 //Ver "./dom-navigation"
+
+//==================================================================================================================================================================
+
+//Adicionar e modificar HTML: Ver "./htmljs-ex1"
+
+//==================================================================================================================================================================
+
+// Mouse events:
+
+// eventListener = permite que você configure funções a serem chamadas quando um evento específico acontece
+//				   como quando um usuário clica em um botão: click, mouseover, mouseout
+//				   .addEventListener(event,callback)
+
+//Ver "./mouse-events"
+
+//==================================================================================================================================================================
+
+//Exemplo diferente do acima
+
+// eventListener = permite que você configure funções a serem chamadas para criar paginas interativas
+//				   eventos: keydown, keyup
+//				   document.addEventListener(event,callback)
