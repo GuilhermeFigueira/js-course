@@ -3080,3 +3080,21 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 // Ver "./hide-html"
 
 //==================================================================================================================================================================
+
+//NodeList = Coleção estática de elementos HTML por (id, class, elementType)
+//			 Pode ser criado usando querySelectorAll()
+//			 Similar a uma array, mas não tem (map, filter, reduce), porém tem forEach
+//			 NodesList não atualizam automaticamente para mostrar as mudanças
+
+// Ver "./nodelist"
+
+//==================================================================================================================================================================
+
+//classList = propriedade de um elemento HTML no javascript usado para interagir com a lista de classes CSS
+// 			  Permite reutilizar classes para diversos elementos da sua pagina
+
+// .add()
+// .remove()
+// .toggle(Remove se a classe estiver presente, adiciona se não)
+// .replace(classeAntiga, classeNova)
+// .contains()
