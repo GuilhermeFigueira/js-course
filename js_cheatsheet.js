@@ -3102,3 +3102,240 @@ document.body.style.backgroundColor = "hsl(0,0%,15%)"; // Podemos mudar a cor de
 //==================================================================================================================================================================
 
 // Ver "./rock-paper-scissors"
+
+//==================================================================================================================================================================
+
+// Ver "./image-slider"
+
+//==================================================================================================================================================================
+
+// Callback hell = Situação no javascript onde callbacks são aninhados dentro de outros callbacks até o ponto
+//				   onde o código fica difícil de ler.
+//				   Padrão antigo para lidar com funções assíncronas.
+//				   Use promises + async/await para evitar callback hell
+
+// function task1() {
+// 	console.log("task 1 complete");
+// }
+
+// function task2() {
+// 	console.log("task 2 complete");
+// }
+
+// function task3() {
+// 	console.log("task 3 complete");
+// }
+
+// function task4() {
+// 	console.log("task 4 complete");
+// }
+
+// task1();
+// task2();
+// task3();
+// task4();
+// console.log("All tasks complete");
+
+//Todas essas funções são executadas em ordem
+//Mas se todas fossem assíncronas e precisassem ser executadas em ordem:
+
+function task1(callback) {
+	setTimeout(() => {
+		console.log("task 1 complete");
+		callback();
+	}, 2000);
+}
+
+function task2(callback) {
+	setTimeout(() => {
+		console.log("task 2 complete");
+		callback();
+	}, 1000);
+}
+
+function task3(callback) {
+	setTimeout(() => {
+		console.log("task 3 complete");
+		callback();
+	}, 3000);
+}
+
+function task4(callback) {
+	setTimeout(() => {
+		console.log("task 4 complete");
+		callback();
+	}, 1500);
+}
+
+//Credo vvvvvvvvv (até 4 callbacks é aceitável, mas não recomendado)
+task1(() => {
+	task2(() => {
+		task3(() => {
+			task4();
+		});
+	});
+});
+
+// Para evitar callback hell's vvvvvv
+
+//==================================================================================================================================================================
+
+//Promise = Um objeto que gerencia operações assíncronas
+//			Envolva um objeto promise em torno de {código assíncrono}
+//			"Eu prometo retornar um valor"
+//			PENDENTE -> RESOLVIDO (conseguiu executar a função) ou REJEITADO (deu erro)
+//			new Promise((resolve, object) => {asynchronous code})
+
+// FAÇA ESSAS TAREFAS EM ORDEM
+
+// 1. Passear com o cachorro
+// 2. Limpe a cozinha
+// 3. Tire o lixo
+
+function walkDog() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const dogWalked = true;
+
+			if (dogWalked) {
+				resolve("You walked the dog");
+			} else {
+				reject("You didn't walk the dog");
+			}
+		}, 1500);
+	});
+}
+
+function cleanKitchen() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const kitchenCleaned = true;
+
+			if (kitchenCleaned) {
+				resolve("You cleaned the kitchen");
+			} else {
+				reject("You didn't clean the kitchen");
+			}
+		}, 2500);
+	});
+}
+
+function takeOutTrash() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const trashTakenOut = true;
+
+			if (trashTakenOut) {
+				resolve("You take out the trash");
+			} else {
+				reject("You didn't take out the trash");
+			}
+		}, 500);
+	});
+}
+
+walkDog()
+	.then((value) => {
+		{
+			console.log(value);
+			return cleanKitchen();
+		}
+	})
+	.then((value) => {
+		console.log(value);
+		return takeOutTrash();
+	})
+	.then((value) => {
+		console.log(value);
+		console.log("You finished all the chores");
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+
+// You walk the dog
+// You clean the kitchen
+// You take out the trash
+
+//Caso alguma promise seja rejeitada, todas após a que deu erro não serão executadas
+
+//==================================================================================================================================================================
+
+// Async/Await = Async = faz com que uma função retorne uma promise
+//				 Await = faz com que uma função async espere por uma promise
+
+//				 Permite que você escreva código assíncrono de uma maneira síncrona
+// 				 Async não precisa de parâmetros resolve ou reject
+//				 Tudo após o Await fica numa fila de espera de eventos
+
+function walkDog() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const dogWalked = true;
+
+			if (dogWalked) {
+				resolve("You walked the dog");
+			} else {
+				reject("You didn't walk the dog");
+			}
+		}, 1500);
+	});
+}
+
+function cleanKitchen() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const kitchenCleaned = true;
+
+			if (kitchenCleaned) {
+				resolve("You cleaned the kitchen");
+			} else {
+				reject("You didn't clean the kitchen");
+			}
+		}, 2500);
+	});
+}
+
+function takeOutTrash() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const trashTakenOut = true;
+
+			if (trashTakenOut) {
+				resolve("You take out the trash");
+			} else {
+				reject("You didn't take out the trash");
+			}
+		}, 500);
+	});
+}
+
+async function doChores() {
+	try {
+		const walkDogResult = await walkDog();
+		console.log(walkDogResult);
+
+		const cleanKitchenResult = await cleanKitchen();
+		console.log(cleanKitchenResult);
+
+		const takeOutTrashResult = await takeOutTrash();
+		console.log(takeOutTrashResult);
+
+		console.log("You finished all the chores");
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+doChores();
+
+// You walk the dog
+// You clean the kitchen
+// You take out the trash
+// You finished all the chores
+
+//Caso alguma promise seja rejeitada, todas as funções após a que deu erro não serão executadas
+
+//==================================================================================================================================================================
+
+// JSON = (Javascript Object Notation)
