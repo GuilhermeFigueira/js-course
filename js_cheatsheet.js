@@ -3338,4 +3338,13 @@ doChores();
 
 //==================================================================================================================================================================
 
-// JSON = (Javascript Object Notation)
+// JSON = (Javascript Object Notation) data-interchange format
+//		  Usado para fazer a troca de dados entre o servidor e a aplicação web
+//		  Arquivos JSON geralmente são objetos -> {key:value} ou [value1,value2,value3]
+
+//		  JSON.stringify() = Converte um objeto JS pra uma string JSON
+//		  JSON.parse() = Converte uma string JSON para um objeto JS
+
+// Ver "./json-example"
+
+//==================================================================================================================================================================
