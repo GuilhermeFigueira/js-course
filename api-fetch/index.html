@@ -1,0 +1,21 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input
+			type="text"
+			name="pokemonName"
+			id="pokemonName"
+			placeholder="Enter Pokémon Name"
+			onchange="autoData(event)"
+		/>
+		<button onclick="fetchData()">Fetch Pokémon</button>
+
+		<img alt="Pokémon Sprite" id="pkmnSprite" style="display: none" />
+
+		<script src="index.js"></script>
+	</body>
+</html>
