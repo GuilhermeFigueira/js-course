@@ -3348,3 +3348,15 @@ doChores();
 // Ver "./json-example"
 
 //==================================================================================================================================================================
+
+// fetch = Função usada para fazer requisições HTTP para buscar recursos
+//		   (dados JSON, imagens, arquivos)
+//		   Simplifica busca de dados assíncronos no Javascript e é usado para interagir
+// 		   com APIs para buscar e enviar dados de modo assíncrono pela web
+// 		   fetch(url, {method: "GET" (adquire algum recurso),
+//							   "POST" (envio de dados),
+//							   "PUT" (substitui algum dado ou valor),
+//							   "DELETE" (deleta dados),
+//			}{options})
+
+// Ver "./api-fetch"
